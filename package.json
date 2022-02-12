@@ -1,0 +1,22 @@
+{
+  "name": "homework_horoscope",
+  "version": "1.0.0",
+  "description": "Итоговое аттестационное задание. Тестировщик - простой вход в профессию программист. 4 поток",
+  "main": "index.js",
+  "scripts": {
+    "Start Cypress": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Googinot/homework_horoscope.git"
+  },
+  "author": "Arkadiy Safronov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Googinot/homework_horoscope/issues"
+  },
+  "homepage": "https://github.com/Googinot/homework_horoscope#readme",
+  "devDependencies": {
+    "cypress": "^9.4.1"
+  }
+}
