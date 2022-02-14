@@ -66,13 +66,13 @@ Cypress.on('uncaught:exception', (err) => {
     cy.visit('https://horo.mail.ru/horoscope')
     cy.get(':nth-child(8) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
     cy.get(':nth-child(8) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
-    cy.contains('Данный авторский расклад «ДА/НЕТ»') //Содержание слова
+    cy.contains('Расклад: Да или Нет') //Содержание слова
   })
   it ('TC-transition №10: Переход по ссылке "Все гороскопы => Гороскоп совместимости по знакам зодиака => Скорпион и Дева"', () => {
     cy.visit('https://horo.mail.ru/horoscope')
     cy.get(':nth-child(9) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
     cy.get(':nth-child(1) > .p-formitem > .p-formitem__content > .dropdown > .dropdown__field').click()
-    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > div > div:nth-child(1) > div.p-formitem > div > div > select > option:nth-child(8)').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > div > div:nth-child(1) > div.p-formitem > div > div > div.dropdown__box.js-select__options.js-module > div > div.suggest__inner.js-select__options__list.js-scrollable__view.dropdown__scroll > div:nth-child(8)').click()
     cy.get(':nth-child(2) > .p-formitem > .p-formitem__content > .dropdown > .dropdown__field').click()
     cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > div > div:nth-child(2) > div.p-formitem > div > div > div.dropdown__box.js-select__options.js-module > div > div.suggest__inner.js-select__options__list.js-scrollable__view.dropdown__scroll > div:nth-child(6)').click()
     cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > button').click()
