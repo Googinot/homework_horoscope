@@ -8,16 +8,81 @@ Cypress.on('uncaught:exception', (err) => {
 
   describe ('Testcase: проверка работоспособности переходов по ссылкам', () => {
   // переход с главной страницы гороскопов на заданную для ИАР
-  it ('Переход по ссылке "Все гороскопы"', () => {
+  it ('TC-transition №1: Переход "Все гороскопы"', () => {
     cy.visit('https://horo.mail.ru')
     cy.get('#portal-menu__submenu > .portal-menu_width > .pm-menu > .pm-menu__center > .pm-menu__center__inner > .pm-toolbar > .js-group > .pm-toolbar__button_first > .js-link > .js-text > .js-text-inner').click()
     cy.contains('Персональные гороскопы')
+  })
+  it ('TC-transition №2: Переход по ссылке "Все гороскопы => Зодиакальный гороскоп => Скорпион"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(1) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(9) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Христофор Колумб') //Содержание слова Христофор Колумб в описании к гороскопу
+  })
+  it ('TC-transition №3: Переход по ссылке "Все гороскопы => Китайский гороскоп => Крыса"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(2) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get('.p-tabs__item_active > :nth-child(1) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Крыса никогда не пойдет к цели напрямую') //Содержание слов
+  })
+  it ('TC-transition №4: Переход по ссылке "Все гороскопы => Японский гороскоп => Кролик"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(3) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(5) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Кролики чрезвычайно чувственны') //Содержание слова
+  })
+  it ('TC-transition №5: Переход по ссылке "Все гороскопы => Зороастрийский гороскоп => Паук"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(4) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(7) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Паук в силах манипулировать людьми') //Содержание слова
+  })
+  it ('TC-transition №6: Переход по ссылке "Все гороскопы => Гороскоп друидов => Клен"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(5) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(13) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Клен любит быть в центре внимания') //Содержание слова
+  })
+  it ('TC-transition №7: Переход по ссылке "Все гороскопы => Цветочный гороскоп => Шиповник"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(6) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(14) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('В любовных отношениях Шиповник обычно зависим') //Содержание слова
+  })
+  it ('TC-transition №8: Переход по ссылке "Все гороскопы => Деловой гороскоп => 15 Февраля 2022"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(7) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Успех в бизнесе зависит от многих факторов') //Содержание слова
+    cy.get('[data-range="day"] > .dropdown__field').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > form > div > div:nth-child(1) > div > div.p-formitem__content > div > div.dropdown.dropdown_tooltip.dropdown_scrollable.dropdown_scrollable.js-date__select.dropdown_active > div.dropdown__box.js-select__options > div > div.suggest__inner.js-select__options__list.js-scrollable__view.dropdown__scroll > div:nth-child(15)').click()
+    cy.get('.dropdown_month_fix > .dropdown__field').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > form > div > div:nth-child(1) > div > div.p-formitem__content > div > div.dropdown.dropdown_month_fix.dropdown_tooltip.dropdown_scrollable.dropdown_scrollable.margin_left_5.js-date__select.dropdown_active > div.dropdown__box.js-select__options > div > div.suggest__inner.js-select__options__list.js-scrollable__view.dropdown__scroll > div:nth-child(2)').click()
+    cy.get('[data-range="year"] > .dropdown__field').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > form > div > div:nth-child(1) > div > div.p-formitem__content > div > div.dropdown.dropdown_tooltip.dropdown_scrollable.dropdown_scrollable.margin_left_5.js-date__select.dropdown_active > div.dropdown__box.js-select__options > div > div.suggest__inner.js-select__options__list.js-scrollable__view.dropdown__scroll > div:nth-child(123)').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > form > div > div.cell.valign_middle > div > div > button').click()
+    cy.contains('Вам нравится решать организационные вопросы') //Содержание слова
+  })
+  it ('TC-transition №9: Переход по ссылке "Все гороскопы => Персональные гороскопы => Расклад: Да или Нет"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(8) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(8) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.contains('Данный авторский расклад «ДА/НЕТ»') //Содержание слова
+  })
+  it ('TC-transition №10: Переход по ссылке "Все гороскопы => Гороскоп совместимости по знакам зодиака => Скорпион и Дева"', () => {
+    cy.visit('https://horo.mail.ru/horoscope')
+    cy.get(':nth-child(9) > .tbl > :nth-child(2) > .hdr > .hdr__wrapper > .hdr__text > .hdr__inner').click()
+    cy.get(':nth-child(1) > .p-formitem > .p-formitem__content > .dropdown > .dropdown__field').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > div > div:nth-child(1) > div.p-formitem > div > div > select > option:nth-child(8)').click()
+    cy.get(':nth-child(2) > .p-formitem > .p-formitem__content > .dropdown > .dropdown__field').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > div > div:nth-child(2) > div.p-formitem > div > div > div.dropdown__box.js-select__options.js-module > div > div.suggest__inner.js-select__options__list.js-scrollable__view.dropdown__scroll > div:nth-child(6)').click()
+    cy.get('body > div.layout > div.block.block_darkgray.block_border_bottom > div > div > div > div > div > div > div > form > button').click()
+    cy.contains('В работе этому тандему нет равных.') //Содержание слова
   })
 })
 
   describe ('Testcase: проверка работоспособности подписки на рассылку гороскопов', () => {
     // ввод несуществующей почты. При вводе новой почты будет другое сообщение!
-  it ('Подписка на новости"', () => {
+  it ('Подписка фейк адреса на новости"', () => {
     cy.get('._756dee3138').type('email@domain.com').should('have.value', 'email@domain.com')
     cy.get('#js-subscription-form-default-react > div._25227d98e9 > div.be1b22ad18 > button').click()
     cy.contains('Уже есть подписка')
