@@ -6,7 +6,7 @@
 1. Выполнить `npm install cypress --save-dev`
 1. Выполнить `npx cypress open`
 1. Выполнить запуск файла `actions.horo.js` переместив его в рабочую директорию `\homework_horoscope\cypress\integration`
-![image](https://user-images.githubusercontent.com/93269843/153912204-69d508c3-c61c-4987-bbd2-709995a971ec.png)
+![image](https://user-images.githubusercontent.com/93269843/153935996-03895c30-36a9-4067-a145-f25b7067c9e2.png)
 ## 👨🏻 Автор
 **Сафронов Аркадий**
 * [github](https://github.com/Googinot)
