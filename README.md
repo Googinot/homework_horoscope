@@ -17,5 +17,4 @@
 
 ## 👨🏻 Автор
 **Сафронов Аркадий**
-* [github](https://github.com/Googinot)
-📌
+* [github](https://github.com/Googinot)📌
