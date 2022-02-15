@@ -17,4 +17,5 @@
 
 ## 👨🏻 Автор
 **Сафронов Аркадий**
-* [github](https://github.com/Googinot)📌
+* [github](https://github.com/Googinot)
+* 📌 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/googinot/homework_horoscope/total"> <img alt="GitHub" src="https://img.shields.io/github/license/Googinot/homework_horoscope">
